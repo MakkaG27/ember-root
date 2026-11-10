@@ -1,0 +1,786 @@
+/* ==========================================================
+   Ember Root – landingspagina
+   Kleuren en fonts komen uit 01-briefing/tokens.css,
+   maten zijn omgezet naar rem (1rem = 16px).
+   Class-namen volgen BEM: blok__element--modifier.
+   Layout met flexbox.
+   ========================================================== */
+
+/* ---------- Fonts (lokaal, geen Google-verbinding = beter voor GDPR) ---------- */
+@font-face {
+  font-family: "Bodoni Moda";
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url("../fonts/bodoni-moda.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Bodoni Moda";
+  font-style: italic;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("../fonts/bodoni-moda-italic.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("../fonts/nunito.woff2") format("woff2");
+}
+
+/* ---------- Tokens ---------- */
+:root {
+  /* merkkleuren */
+  --er-bosgroen: #26734D;
+  --er-wijnrood: #7E2F3C;
+  --er-ivoor:    #FAF5EA;
+  --er-salie:    #B9C4AE;
+  --er-mos:      #2A3229;
+
+  /* smaakkleuren */
+  --er-smaak-ginger:    #D98E4A;
+  --er-smaak-green:     #B9C4AE;
+  --er-smaak-rooibos:   #7E2F3C;
+  --er-smaak-chamomile: #E8D49A;
+
+  /* rollen */
+  --er-achtergrond: var(--er-ivoor);
+  --er-tekst:       var(--er-mos);
+  --er-titel:       var(--er-bosgroen);
+  --er-accent:      var(--er-wijnrood);
+  --er-lijn:        var(--er-salie);
+
+  /* fonts */
+  --er-font-titel: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+  --er-font-tekst: "Nunito", "Segoe UI", system-ui, -apple-system, sans-serif;
+
+  /* typeschaal (desktop) */
+  --er-fs-h1: 4rem;
+  --er-fs-h2: 2.25rem;
+  --er-fs-quote: 2.5rem;
+  --er-fs-tekst: 1.125rem;
+  --er-fs-klein: 0.875rem;
+  --er-fs-label: 0.8125rem;
+  --er-lh-titel: 1.05;
+  --er-lh-tekst: 1.6;
+  --er-label-spacing: 0.12em;
+
+  /* vorm en ruimte */
+  --er-radius-foto: 0.5rem;
+  --er-radius-knop: 62.5rem;
+  --er-ruimte-1: 0.5rem;
+  --er-ruimte-2: 1rem;
+  --er-ruimte-3: 1.5rem;
+  --er-ruimte-4: 2.5rem;
+  --er-ruimte-5: 4rem;
+  --er-ruimte-6: 6rem;
+  --er-breedte: 72rem;
+  --er-gutter: 1.5rem;
+}
+
+/* ---------- Basis ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--er-ruimte-2);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--er-achtergrond);
+  color: var(--er-tekst);
+  font-family: var(--er-font-tekst);
+  font-size: var(--er-fs-tekst);
+  line-height: var(--er-lh-tekst);
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: var(--er-font-titel);
+  font-weight: 500;
+  line-height: var(--er-lh-titel);
+  color: var(--er-titel);
+}
+
+p {
+  margin: 0;
+}
+
+em {
+  font-style: italic;
+}
+
+a {
+  color: var(--er-accent);
+  text-underline-offset: 0.18em;
+}
+
+:focus-visible {
+  outline: 0.1875rem solid var(--er-wijnrood);
+  outline-offset: 0.1875rem;
+}
+
+.skip-link {
+  position: absolute;
+  top: -10rem;
+  left: var(--er-ruimte-2);
+  z-index: 10;
+  padding: var(--er-ruimte-1) var(--er-ruimte-2);
+  background: var(--er-mos);
+  color: var(--er-ivoor);
+  font-weight: 700;
+  border-radius: 0 0 var(--er-radius-foto) var(--er-radius-foto);
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* klein label in hoofdletters */
+.label {
+  font-size: var(--er-fs-label);
+  font-weight: 700;
+  letter-spacing: var(--er-label-spacing);
+  text-transform: uppercase;
+}
+
+/* ---------- Knop ---------- */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  padding: 0.875rem 1.75rem;
+  border-radius: var(--er-radius-knop);
+  background: var(--er-wijnrood);
+  color: var(--er-ivoor);
+  font-family: var(--er-font-tekst);
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.button:hover {
+  background: #66232E;
+  transform: translateY(-0.0625rem);
+}
+
+.button--small {
+  min-height: 2.5rem;
+  padding: 0.5rem 1.25rem;
+  font-size: var(--er-fs-klein);
+}
+
+/* ---------- Header ---------- */
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--er-ruimte-2);
+  max-width: var(--er-breedte);
+  margin: 0 auto;
+  padding: var(--er-ruimte-3) var(--er-gutter);
+}
+
+.header__logo {
+  display: block;
+}
+
+.header__logo-img {
+  width: 7.5rem;
+}
+
+/* ---------- 1. Hero ---------- */
+.hero__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--er-ruimte-5);
+  max-width: var(--er-breedte);
+  margin: 0 auto;
+  padding: var(--er-ruimte-4) var(--er-gutter) var(--er-ruimte-6);
+}
+
+.hero__text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--er-ruimte-3);
+  flex: 1 1 26rem;
+}
+
+.hero__label {
+  color: var(--er-bosgroen);
+}
+
+.hero__title {
+  font-size: var(--er-fs-h1);
+}
+
+.hero__accent {
+  display: block;
+  color: var(--er-accent);
+}
+
+.hero__intro {
+  max-width: 32rem;
+}
+
+.hero__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--er-ruimte-2);
+  margin-top: var(--er-ruimte-1);
+}
+
+.hero__link {
+  font-size: var(--er-fs-klein);
+  font-weight: 600;
+  color: var(--er-mos);
+}
+
+.hero__media {
+  flex: 1 1 32rem;
+  margin: 0;
+}
+
+.hero__img {
+  width: 100%;
+  border-radius: var(--er-radius-foto);
+  box-shadow: 0 1.5rem 3rem -1.5rem rgba(42, 50, 41, 0.35);
+}
+
+/* ---------- 2. Verhaal ---------- */
+.story {
+  padding: var(--er-ruimte-6) var(--er-gutter);
+  background: var(--er-bosgroen);
+  color: var(--er-ivoor);
+}
+
+.story__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--er-ruimte-5);
+  max-width: var(--er-breedte);
+  margin: 0 auto;
+}
+
+.story__text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--er-ruimte-2);
+  flex: 1 1 24rem;
+}
+
+.story__label {
+  color: var(--er-ivoor);
+}
+
+.story__title {
+  margin-bottom: var(--er-ruimte-1);
+  font-size: var(--er-fs-h2);
+  color: var(--er-ivoor);
+}
+
+.story__media {
+  flex: 1 1 30rem;
+  margin: 0;
+}
+
+.story__caption {
+  margin-top: var(--er-ruimte-2);
+  font-family: var(--er-font-titel);
+  font-style: italic;
+  font-size: 1.75rem;
+  line-height: 1.2;
+}
+
+/* video met pauzeknop (een video die vanzelf speelt moet je kunnen stoppen, WCAG 2.2.2) */
+.video {
+  position: relative;
+}
+
+.video__player {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: var(--er-radius-foto);
+  background: var(--er-mos);
+}
+
+.video__toggle {
+  position: absolute;
+  right: var(--er-ruimte-2);
+  bottom: var(--er-ruimte-2);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--er-ruimte-1);
+  min-height: 2.75rem;
+  padding: 0.5rem 1rem;
+  border: 0;
+  border-radius: var(--er-radius-knop);
+  background: rgba(42, 50, 41, 0.85);
+  color: var(--er-ivoor);
+  font-family: var(--er-font-tekst);
+  font-size: var(--er-fs-klein);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.video__toggle:hover {
+  background: var(--er-mos);
+}
+
+.video__toggle-icon {
+  font-size: 0.75rem;
+  letter-spacing: -0.1em;
+}
+
+.quote {
+  max-width: 50rem;
+  margin: var(--er-ruimte-6) auto 0;
+  padding: var(--er-ruimte-4) 0 0;
+  border-top: 0.0625rem solid rgba(250, 245, 234, 0.4);
+  text-align: center;
+}
+
+.quote__text {
+  font-family: var(--er-font-titel);
+  font-style: italic;
+  font-size: var(--er-fs-quote);
+  line-height: 1.2;
+}
+
+/* ---------- 3. Vier momenten ---------- */
+.moments {
+  max-width: var(--er-breedte);
+  margin: 0 auto;
+  padding: var(--er-ruimte-6) var(--er-gutter);
+}
+
+.moments__head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--er-ruimte-2);
+  margin-bottom: var(--er-ruimte-5);
+  text-align: center;
+}
+
+.moments__title {
+  font-size: var(--er-fs-h2);
+}
+
+.moments__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--er-ruimte-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card {
+  --card-kleur: var(--er-salie);
+  --card-tekst: var(--er-mos);
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 15rem;
+  overflow: hidden;
+  border: 0.0625rem solid var(--er-lijn);
+  border-radius: var(--er-radius-foto);
+  background: #FFFDF8;
+}
+
+.card--ginger    { --card-kleur: var(--er-smaak-ginger); }
+.card--green     { --card-kleur: var(--er-smaak-green); }
+.card--rooibos   { --card-kleur: var(--er-smaak-rooibos); --card-tekst: var(--er-ivoor); }
+.card--chamomile { --card-kleur: var(--er-smaak-chamomile); }
+
+.card__img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.card__band {
+  display: flex;
+  align-items: center;            /* uur en smaak verticaal in het midden */
+  justify-content: space-between;
+  gap: var(--er-ruimte-1);
+  min-height: 4rem;               /* alle balken even hoog, ook als de smaak op 2 regels staat */
+  padding: 0.5rem var(--er-ruimte-2);
+  background: var(--card-kleur);
+  color: var(--card-tekst);
+}
+
+.card__time {
+  font-family: var(--er-font-titel);
+  font-size: 1.75rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.card__flavour {
+  font-size: var(--er-fs-klein);
+  font-weight: 700;
+  line-height: 1.3;
+  text-align: right;
+}
+
+.card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: var(--er-ruimte-1);
+  padding: var(--er-ruimte-3) var(--er-ruimte-2);
+}
+
+.card__title {
+  font-size: 1.75rem;
+  line-height: 1.15;
+}
+
+.card__text {
+  flex: 1;
+  font-size: 1rem;
+}
+
+.card__tag {
+  align-self: flex-start;
+  margin-top: var(--er-ruimte-1);
+  padding: 0.25rem 0.75rem;
+  border: 0.0625rem solid var(--er-bosgroen);
+  border-radius: var(--er-radius-knop);
+  color: var(--er-bosgroen);
+  font-size: var(--er-fs-label);
+  font-weight: 700;
+  letter-spacing: var(--er-label-spacing);
+  text-transform: uppercase;
+}
+
+/* ---------- 4. CTA ---------- */
+.cta {
+  padding: var(--er-ruimte-6) var(--er-gutter);
+  background: var(--er-salie);
+}
+
+.cta__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--er-ruimte-5);
+  max-width: var(--er-breedte);
+  margin: 0 auto;
+}
+
+.cta__gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--er-ruimte-2);
+  flex: 1 1 26rem;
+}
+
+.cta__img {
+  flex: 1 1 calc(50% - var(--er-ruimte-2));
+  width: calc(50% - var(--er-ruimte-2));
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--er-radius-foto);
+}
+
+.cta__text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--er-ruimte-3);
+  flex: 1 1 22rem;
+}
+
+.cta__title {
+  font-size: var(--er-fs-h2);
+  color: var(--er-mos);
+}
+
+.cta__title em {
+  color: var(--er-wijnrood);
+}
+
+/* ---------- 5. Formulier ---------- */
+.signup {
+  padding: var(--er-ruimte-6) var(--er-gutter);
+}
+
+.signup:focus {
+  outline: none;
+}
+
+.signup__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--er-ruimte-3);
+  max-width: 40rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.signup__title {
+  font-size: var(--er-fs-h2);
+}
+
+.signup__placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--er-ruimte-2);
+  padding: var(--er-ruimte-4) var(--er-ruimte-3);
+  border: 0.125rem dashed var(--er-bosgroen);
+  border-radius: var(--er-radius-foto);
+  background: #FFFDF8;
+}
+
+.signup__placeholder-label {
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--er-radius-knop);
+  background: var(--er-wijnrood);
+  color: var(--er-ivoor);
+}
+
+.signup__placeholder-title {
+  font-family: var(--er-font-titel);
+  font-size: 1.75rem;
+  line-height: 1.2;
+  color: var(--er-bosgroen);
+}
+
+.signup__fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--er-ruimte-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.signup__hint {
+  font-weight: 400;
+}
+
+.signup__privacy {
+  font-size: var(--er-fs-klein);
+}
+
+/* ---------- 6. Footer ---------- */
+.footer {
+  padding: var(--er-ruimte-5) var(--er-gutter) var(--er-ruimte-4);
+  background: var(--er-bosgroen);
+  color: var(--er-ivoor);
+}
+
+.footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--er-ruimte-4);
+  max-width: var(--er-breedte);
+  margin: 0 auto;
+}
+
+.footer__brand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--er-ruimte-1);        /* slogan direct onder het logo */
+}
+
+.footer__logo {
+  width: 8.75rem;
+}
+
+.footer__slogan {
+  font-family: var(--er-font-titel);
+  font-style: italic;
+  font-size: 1.375rem;
+  line-height: 1.2;
+}
+
+.footer__links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;          /* rechts uitgelijnd */
+  gap: var(--er-ruimte-1);
+  text-align: right;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-weight: 600;
+}
+
+.footer__link {
+  color: var(--er-ivoor);
+}
+
+.footer__link:focus-visible {
+  outline-color: var(--er-ivoor);
+}
+
+.footer__note {
+  max-width: var(--er-breedte);
+  margin: var(--er-ruimte-4) auto 0;
+  padding-top: var(--er-ruimte-3);
+  border-top: 0.0625rem solid rgba(250, 245, 234, 0.4);
+  font-size: var(--er-fs-klein);
+}
+
+/* ---------- Privacyverklaring (aparte pagina) ---------- */
+.legal {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding: var(--er-ruimte-4) var(--er-gutter) var(--er-ruimte-6);
+}
+
+.legal__title {
+  margin-bottom: var(--er-ruimte-3);
+  font-size: var(--er-fs-h2);
+}
+
+.legal__subtitle {
+  margin: var(--er-ruimte-4) 0 var(--er-ruimte-1);
+  font-size: 1.75rem;
+}
+
+.legal__paragraph {
+  margin-bottom: var(--er-ruimte-2);
+}
+
+/* ---------- Animatie bij scrollen (enkel als JS werkt en beweging mag) ---------- */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(1.5rem);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.js .reveal--zichtbaar {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ---------- Tablet (tot 960px) ---------- */
+@media (max-width: 60em) {
+  :root {
+    --er-fs-h1: 3.25rem;
+    --er-ruimte-6: 4.5rem;
+  }
+
+  .hero__inner,
+  .story__inner,
+  .cta__inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--er-ruimte-4);
+  }
+
+  .hero__text,
+  .hero__media,
+  .story__text,
+  .story__media,
+  .cta__gallery,
+  .cta__text {
+    flex-basis: auto;
+  }
+
+  .cta__gallery {
+    order: 2;
+  }
+
+  .card {
+    flex-basis: calc(50% - var(--er-ruimte-3));
+  }
+}
+
+/* ---------- Gsm (tot 600px) ---------- */
+@media (max-width: 37.5em) {
+  :root {
+    --er-fs-h1: 2.5rem;
+    --er-fs-h2: 1.75rem;
+    --er-fs-quote: 1.75rem;
+    --er-fs-tekst: 1rem;
+    --er-ruimte-6: 3.5rem;
+    --er-gutter: 1rem;
+  }
+
+  .header__inner {
+    padding-top: var(--er-ruimte-2);
+    padding-bottom: var(--er-ruimte-2);
+  }
+
+  .header__logo-img {
+    width: 6rem;
+  }
+
+  .hero__inner {
+    padding-top: var(--er-ruimte-2);
+  }
+
+  .hero__actions,
+  .hero__actions .button,
+  .cta__text .button {
+    align-self: stretch;
+  }
+
+  .card {
+    flex-basis: 100%;
+  }
+
+  .card__img {
+    aspect-ratio: 1 / 1;
+  }
+
+  .video__toggle-text {
+    position: absolute;
+    width: 0.0625rem;
+    height: 0.0625rem;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .footer__inner,
+  .footer__links {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+}

@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ember Root – Dezelfde pauze. Minder cafeïne.</title>
+    <meta
+      name="description"
+      content="Vier kruidige theeën voor koffieliefhebbers, met minder cafeïne. Vraag je gratis proefpakket aan."
+    />
+    <meta name="theme-color" content="#26734D" />
+
+    <!-- Open Graph: zo ziet de link eruit als je hem deelt -->
+    <meta
+      property="og:title"
+      content="Ember Root – Dezelfde pauze. Minder cafeïne."
+    />
+    <meta
+      property="og:description"
+      content="Vier kruidige theeën voor koffieliefhebbers, met minder cafeïne. Vraag je gratis proefpakket aan."
+    />
+    <meta property="og:image" content="img/ember-root-alle-smaken.jpg" />
+    <meta property="og:type" content="website" />
+
+    <link
+      rel="icon"
+      href="img/ember-root-beeldmerk-bosgroen.svg"
+      type="image/svg+xml"
+    />
+    <link
+      rel="preload"
+      href="fonts/bodoni-moda.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="fonts/nunito.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- MAILERLITE (stap 1 van 2): plak hier het script uit MailerLite
+       (Forms > jouw formulier > Embed form > "JavaScript snippet"). -->
+    <!-- MailerLite Universal -->
+    <script>
+      (function (w, d, e, u, f, l, n) {
+        ((w[f] =
+          w[f] ||
+          function () {
+            (w[f].q = w[f].q || []).push(arguments);
+          }),
+          (l = d.createElement(e)),
+          (l.async = 1),
+          (l.src = u),
+          (n = d.getElementsByTagName(e)[0]),
+          n.parentNode.insertBefore(l, n));
+      })(
+        window,
+        document,
+        "script",
+        "https://assets.mailerlite.com/js/universal.js",
+        "ml",
+      );
+      ml("account", "2747940");
+    </script>
+    <!-- End MailerLite Universal -->
+  </head>
+  <body>
+    <a class="skip-link" href="#inhoud">Ga naar de inhoud</a>
+
+    <!-- ========== Header ========== -->
+    <header class="header">
+      <div class="header__inner">
+        <a class="header__logo" href="#top" aria-label="Ember Root, naar boven">
+          <img
+            class="header__logo-img"
+            src="img/ember-root-logo-bosgroen.svg"
+            alt="Ember Root"
+            width="120"
+            height="65"
+          />
+        </a>
+        <a class="button button--small" href="#formulier">Proefpakket</a>
+      </div>
+    </header>
+
+    <main id="inhoud">
+      <!-- ========== 1. Hero ========== -->
+      <section class="hero" id="top" aria-labelledby="hero-titel">
+        <div class="hero__inner">
+          <div class="hero__text">
+            <p class="label hero__label">
+              Kruidige thee voor koffieliefhebbers
+            </p>
+            <h1 class="hero__title" id="hero-titel">
+              Dezelfde pauze. <em class="hero__accent">Minder cafeïne.</em>
+            </h1>
+            <p class="hero__intro">
+              Vier kruidige theeën voor koffieliefhebbers. Voor elk moment van
+              je dag een warme kop, zonder de bibber erna.
+            </p>
+            <div class="hero__actions">
+              <a class="button" href="#formulier"
+                >Vraag je gratis proefpakket aan</a
+              >
+              <a class="hero__link" href="#momenten"
+                >Of ontdek eerst de vier momenten
+                <span aria-hidden="true">↓</span></a
+              >
+            </div>
+          </div>
+          <figure class="hero__media">
+            <img
+              class="hero__img"
+              src="img/ember-root-alle-smaken.jpg"
+              width="1600"
+              height="1024"
+              alt="De vier doosjes van Ember Root naast elkaar op een lichte achtergrond."
+            />
+          </figure>
+        </div>
+      </section>
+
+      <!-- ========== 2. Het verhaal ========== -->
+      <section class="story" id="verhaal" aria-labelledby="story-titel">
+        <div class="story__inner">
+          <div class="story__text reveal">
+            <p class="label story__label">Het verhaal van Ember Root</p>
+            <h2 class="story__title" id="story-titel">
+              Van vlam naar <em>gloed</em>
+            </h2>
+            <p class="story__paragraph">
+              Koffie is een vlam. Snel, fel, en een uurtje later ben je weer op.
+              We snappen het: die eerste kop is heilig, en daar komen we niet
+              aan.
+            </p>
+            <p class="story__paragraph">
+              Maar wat met de derde, de vierde, die van vier uur? Daar is Ember
+              Root voor. <em>Ember</em> is de gloed die blijft na het vuur.
+              <em>Root</em> staat voor de wortels en kruiden in onze thee:
+              gember, kurkuma, rooibos.
+            </p>
+            <p class="story__paragraph">
+              Geen preek, geen schuldgevoel. Gewoon een warme mok die naar iets
+              smaakt. Kruidig, vol en met minder cafeïne. Zodat je pauze een
+              pauze blijft.
+            </p>
+          </div>
+
+          <figure class="story__media reveal">
+            <div class="video">
+              <video
+                class="video__player"
+                id="merkvideo"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                poster="img/ember-root-video-poster.jpg"
+                aria-label="Een doosje Ember Root op een keukentafel in het ochtendlicht, dat overgaat in een rustige avond bij kaarslicht."
+              >
+                <source src="video/ember-root-video.mp4" type="video/mp4" />
+                Je browser kan deze video niet afspelen.
+              </video>
+              <button
+                class="video__toggle"
+                type="button"
+                aria-controls="merkvideo"
+                aria-pressed="false"
+              >
+                <span class="video__toggle-icon" aria-hidden="true">❚❚</span>
+                <span class="video__toggle-text">Pauzeer video</span>
+              </button>
+            </div>
+            <figcaption class="story__caption">
+              Van je eerste kop tot je laatste.
+            </figcaption>
+          </figure>
+        </div>
+
+        <blockquote class="quote reveal">
+          <p class="quote__text">
+            “Je vieruurtje mag blijven. Je hartkloppingen niet.”
+          </p>
+        </blockquote>
+      </section>
+
+      <!-- ========== 3. Jouw dag in vier koppen ========== -->
+      <section class="moments" id="momenten" aria-labelledby="moments-titel">
+        <div class="moments__head reveal">
+          <h2 class="moments__title" id="moments-titel">
+            Jouw dag in vier koppen
+          </h2>
+          <p class="moments__intro">
+            Elke smaak hoort bij een moment. Kies er één, of drink ze alle vier.
+          </p>
+        </div>
+
+        <ul class="moments__list">
+          <li class="card card--ginger reveal">
+            <img
+              class="card__img"
+              src="img/ember-root-ginger-donker.jpg"
+              width="800"
+              height="1000"
+              loading="lazy"
+              alt="Doosje Ember Root Ginger &amp; Turmeric"
+            />
+            <div class="card__band">
+              <span class="card__time"
+                ><time datetime="07:00">07:00</time></span
+              >
+              <span class="card__flavour">Ginger &amp; Turmeric</span>
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Pittig wakker, zonder schok.</h3>
+              <p class="card__text">
+                Gember en kurkuma geven je ochtend een warme, kruidige start.
+                Een tikje scherp, lekker vol.
+              </p>
+              <p class="card__tag">Cafeïnevrij</p>
+            </div>
+          </li>
+
+          <li class="card card--green reveal">
+            <img
+              class="card__img"
+              src="img/ember-root-green-donker.jpg"
+              width="800"
+              height="1000"
+              loading="lazy"
+              alt="Doosje Ember Root Green Tea &amp; Lemongrass"
+            />
+            <div class="card__band">
+              <span class="card__time"
+                ><time datetime="10:30">10:30</time></span
+              >
+              <span class="card__flavour">Green Tea &amp; Lemongrass</span>
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">
+                Een helder hoofd, een rustige hartslag.
+              </h3>
+              <p class="card__text">
+                Groene thee met citroengras voor je pauze tussen twee meetings.
+                Fris en licht.
+              </p>
+              <p class="card__tag">Een beetje cafeïne</p>
+            </div>
+          </li>
+
+          <li class="card card--rooibos reveal">
+            <img
+              class="card__img"
+              src="img/ember-root-rooibos-donker.jpg"
+              width="800"
+              height="1000"
+              loading="lazy"
+              alt="Doosje Ember Root Rooibos &amp; Forest Berries"
+            />
+            <div class="card__band">
+              <span class="card__time"
+                ><time datetime="16:00">16:00</time></span
+              >
+              <span class="card__flavour">Rooibos &amp; Forest Berries</span>
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Je vieruurtje, nu cafeïnevrij.</h3>
+              <p class="card__text">
+                Rooibos met bosvruchten, vol en een tikje zoet. Perfect naast
+                een koekje.
+              </p>
+              <p class="card__tag">Cafeïnevrij</p>
+            </div>
+          </li>
+
+          <li class="card card--chamomile reveal">
+            <img
+              class="card__img"
+              src="img/ember-root-chamomile-donker.jpg"
+              width="800"
+              height="1000"
+              loading="lazy"
+              alt="Doosje Ember Root Chamomile &amp; Honey"
+            />
+            <div class="card__band">
+              <span class="card__time"
+                ><time datetime="21:00">21:00</time></span
+              >
+              <span class="card__flavour">Chamomile &amp; Honey</span>
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Een zachte landing na je dag.</h3>
+              <p class="card__text">
+                Kamille met een vleugje honing. Zacht en rond, voor je laatste
+                kop in de zetel.
+              </p>
+              <p class="card__tag">Cafeïnevrij</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <!-- ========== 4. CTA ========== -->
+      <section class="cta" aria-labelledby="cta-titel">
+        <div class="cta__inner">
+          <div class="cta__gallery reveal">
+            <img
+              class="cta__img"
+              src="img/ember-root-ginger-sfeer.jpg"
+              width="800"
+              height="1000"
+              loading="lazy"
+              alt="Ginger &amp; Turmeric op een houten tafel in het ochtendlicht, met verse gember en kurkuma."
+            />
+            <img
+              class="cta__img"
+              src="img/ember-root-green-sfeer.jpg"
+              width="800"
+              height="1000"
+              loading="lazy"
+              alt="Green Tea &amp; Lemongrass aan een raam met daglicht en citroengras."
+            />
+            <img
+              class="cta__img"
+              src="img/ember-root-rooibos-sfeer.jpg"
+              width="800"
+              height="1000"
+              loading="lazy"
+              alt="Rooibos &amp; Forest Berries op een donkere houten tafel in warm middaglicht."
+            />
+            <img
+              class="cta__img"
+              src="img/ember-root-chamomile-sfeer.jpg"
+              width="800"
+              height="1000"
+              loading="lazy"
+              alt="Chamomile &amp; Honey bij een gebreide deken in zacht avondlicht."
+            />
+          </div>
+          <div class="cta__text reveal">
+            <h2 class="cta__title" id="cta-titel">
+              Proef alle vier, <em>gratis.</em>
+            </h2>
+            <p class="cta__paragraph">
+              Schrijf je in en we sturen je een proefpakket met elke smaak. Zo
+              ontdek je zelf welke kop bij jouw dag past.
+            </p>
+            <a class="button" href="#formulier">Ik wil proeven</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== 5. Formulier (MailerLite) ========== -->
+      <section
+        class="signup"
+        id="formulier"
+        aria-labelledby="signup-titel"
+        tabindex="-1"
+      >
+        <div class="signup__inner reveal">
+          <h2 class="signup__title" id="signup-titel">
+            Vraag je proefpakket aan
+          </h2>
+          <p class="signup__intro">
+            Laat je naam en e-mailadres achter. We sturen je een paar warme
+            mails met tips per moment, en natuurlijk je proefpakket.
+          </p>
+
+          <!-- MAILERLITE (stap 2 van 2): vervang de volledige <div class="signup__placeholder"> hieronder
+             door de <div class="ml-embedded" data-form="..."></div> uit MailerLite. -->
+          <div class="ml-embedded" data-form="VlaYR4"></div>
+
+          <p class="signup__privacy">
+            We gebruiken je gegevens alleen om je deze mails te sturen. We delen
+            ze met niemand en je kan je op elk moment uitschrijven. Lees meer in
+            onze <a href="privacyverklaring.html">privacyverklaring</a>.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!-- ========== 6. Footer ========== -->
+    <footer class="footer">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <img
+            class="footer__logo"
+            src="img/ember-root-logo-ivoor.svg"
+            alt="Ember Root"
+            width="140"
+            height="76"
+          />
+          <p class="footer__slogan">Dezelfde pauze. Minder cafeïne.</p>
+        </div>
+        <ul class="footer__links">
+          <li class="footer__item">Instagram @emberroot</li>
+          <li class="footer__item">
+            <a class="footer__link" href="privacyverklaring.html"
+              >Privacyverklaring</a
+            >
+          </li>
+        </ul>
+      </div>
+      <p class="footer__note">
+        Ember Root is een fictief merk, gemaakt door Makka Gapoueva voor een
+        schoolopdracht aan de Arteveldehogeschool (2026). Er worden geen echte
+        producten verkocht of verzonden.
+      </p>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+  </body>
+</html>
